@@ -5,6 +5,13 @@ export default class Page {
   components = {};
   subElements = {};
 
+  onPointerDown = (event) => {
+      if(event.target.closest('.category')){
+          const currentElement = event.target.closest('.category');
+          currentElement.classList.toggle('category_open');
+      }
+  }
+
   async render() {
     // ? Вопрос насчет записи
     const [response] = await Promise.all([this.getCategoriesData()]);
@@ -94,6 +101,7 @@ export default class Page {
   }
 
   initEventListeners() {
-
+    const { categoriesContainer } = this.subElements;
+    categoriesContainer.addEventListener("pointerdown", this.onPointerDown)
   }
 }
