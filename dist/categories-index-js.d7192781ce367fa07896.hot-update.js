@@ -1,0 +1,15 @@
+webpackHotUpdate("categories-index-js",{
+
+/***/ "./src/pages/categories/index.js":
+/*!***************************************!*\
+  !*** ./src/pages/categories/index.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Page; });\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module '../../utils'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\nclass Page {\n  constructor() {\n    _defineProperty(this, \"element\", void 0);\n\n    _defineProperty(this, \"components\", {});\n\n    _defineProperty(this, \"subElements\", {});\n  }\n\n  render() {\n    const element = document.createElement('div');\n    element.innerHTML = this.template;\n    this.element = element.firstElementChild;\n    return this.element;\n  }\n\n  get template() {\n    return \"  \\n        <div class=\\\"categories\\\">\\n        <div class=\\\"content__top-panel\\\">\\n          <h1 class=\\\"page-title\\\">Categories</h1>\\n          <div data-elem=\\\"categoriesContainer\\\">\\n            <!-- Render categories menue here -->\\n          </div>\\n        </div>\\n      </div>\";\n  }\n\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcGFnZXMvY2F0ZWdvcmllcy9pbmRleC5qcy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9wYWdlcy9jYXRlZ29yaWVzL2luZGV4LmpzPzliMWIiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGZldGNoSnNvbiBmcm9tIFwiLi4vLi4vdXRpbHNcIjtcclxuXHJcbmV4cG9ydCBkZWZhdWx0IGNsYXNzIFBhZ2Uge1xyXG4gICAgZWxlbWVudDtcclxuICAgIGNvbXBvbmVudHMgPSB7fTtcclxuICAgIHN1YkVsZW1lbnRzID0ge307XHJcblxyXG4gICAgcmVuZGVyKCkge1xyXG4gICAgICAgIGNvbnN0IGVsZW1lbnQgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTtcclxuICAgICAgICBlbGVtZW50LmlubmVySFRNTCA9IHRoaXMudGVtcGxhdGU7XHJcbiAgICAgICAgdGhpcy5lbGVtZW50ID0gZWxlbWVudC5maXJzdEVsZW1lbnRDaGlsZDtcclxuXHJcbiAgICAgICAgcmV0dXJuIHRoaXMuZWxlbWVudDtcclxuICAgICAgICBcclxuICAgIH1cclxuXHJcbiAgICBnZXQgdGVtcGxhdGUoKSB7XHJcbiAgICAgICAgcmV0dXJuIGAgIFxyXG4gICAgICAgIDxkaXYgY2xhc3M9XCJjYXRlZ29yaWVzXCI+XHJcbiAgICAgICAgPGRpdiBjbGFzcz1cImNvbnRlbnRfX3RvcC1wYW5lbFwiPlxyXG4gICAgICAgICAgPGgxIGNsYXNzPVwicGFnZS10aXRsZVwiPkNhdGVnb3JpZXM8L2gxPlxyXG4gICAgICAgICAgPGRpdiBkYXRhLWVsZW09XCJjYXRlZ29yaWVzQ29udGFpbmVyXCI+XHJcbiAgICAgICAgICAgIDwhLS0gUmVuZGVyIGNhdGVnb3JpZXMgbWVudWUgaGVyZSAtLT5cclxuICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDwvZGl2PlxyXG4gICAgICA8L2Rpdj5gO1xyXG4gICAgfVxyXG59XHJcblxyXG4iXSwibWFwcGluZ3MiOiI7Ozs7O0FBQUE7QUFFQTtBQUFBO0FBQUE7QUFDQTtBQURBO0FBQ0E7QUFEQTtBQUFBO0FBQ0E7QUFJQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFTQTtBQUNBO0FBekJBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/pages/categories/index.js\n");
+
+/***/ })
+
+})

@@ -111,10 +111,8 @@ export default class Page {
     this.subElements = this.getSubElements(this.element);
 
     await this.initComponents();
-
     this.renderComponents();
     this.initEventListeners();
-
     return this.element;
   }
 
