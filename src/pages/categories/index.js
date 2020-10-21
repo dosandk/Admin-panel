@@ -28,28 +28,24 @@ export default class Page {
       const result = await fetchJson(`${process.env.BACKEND_URL}api/rest/subcategories`, {
         method: 'PATCH',
         headers: {
-            "Content-Type": "application/json",
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(requestData),
+        body: JSON.stringify(requestData)
       });
-      console.log(result);
-      this.showNotificationMessage("Category order saved", "success");
-
-
+      this.showNotificationMessage('Category order saved', 'success');
     } catch (error) {
-      this.showNotificationMessage("Category order NOT saved", "error");
+      this.showNotificationMessage('Category order NOT saved', 'error');
       console.error('something went wrong', error);
     }
-
   };
 
   showNotificationMessage(messageText, messageType) {
-    const notificationMessage = new NotificationMessage(messageText, {type: messageType});
-    notificationMessage.element.style.position = "fixed";
+    const notificationMessage = new NotificationMessage(messageText, { type: messageType });
+    notificationMessage.element.style.position = 'fixed';
     notificationMessage.element.style.bottom = `10px`;
-    notificationMessage.element.style.right = "10px";
+    notificationMessage.element.style.right = '10px';
 
-    notificationMessage.show()
+    notificationMessage.show();
   }
 
   onPointerDown = event => {
@@ -76,6 +72,8 @@ export default class Page {
 
     this.getCategoriestList(response);
     this.initEventListeners();
+
+    console.log(this.components);
 
     return this.element;
   }
@@ -134,6 +132,9 @@ export default class Page {
     data.forEach(dataItem => {
       const items = this.getCategoriesListItem(dataItem);
       const sortableList = new SortableList({ items });
+
+      this.components[dataItem.id] = sortableList; //TODO: Не уверен что правильно реализовал инициализацию компонента SortableList
+
       this.listContainers[dataItem.id].append(sortableList.element);
     });
   }
