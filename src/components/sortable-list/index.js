@@ -167,7 +167,7 @@ export default class SortableList {
       this.element.dispatchEvent(
         new CustomEvent("sortable-list-reorder", {
           bubbles: true,
-          details: {
+          detail: {
             from: this.elementInitialIndex,
             to: placeholderIndex,
           },
