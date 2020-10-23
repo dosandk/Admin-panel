@@ -1,7 +1,9 @@
 import fetchJson from '../../../utils/fetch-json.js';
+import header from './products-headers.js';
 
-import ProductForm from '../../../components/product-form/index.js';
+// import ProductForm from '../../../components/product-form/index.js';
 import DoubleSlider from '../../../components/double-slider/index.js';
+import SortableTable from '../../../components/sortable-table/index.js';
 
 export default class Page {
   element;
@@ -16,8 +18,8 @@ export default class Page {
 
     this.subElements = this.getSubElements(this.element);
 
-    // this.initComponents();
-    // await this.renderComponents();
+    this.initComponents();
+    await this.renderComponents();
 
     return this.element;
   }
@@ -57,15 +59,22 @@ export default class Page {
   }
 
   initComponents() {
-    const productId = '101-planset-lenovo-yt3-x90l-64-gb-3g-lte-cernyj';
+    // const productId = '101-planset-lenovo-yt3-x90l-64-gb-3g-lte-cernyj';
+    // this.components.productFrom = new ProductForm(productId);
 
-    this.components.productFrom = new ProductForm(productId);
+    this.components.doubleSlider = new DoubleSlider({ min: 0, max: 4000 });
+    this.components.sortableTable = new SortableTable(header, {
+      url: 'api/rest/products?_embed=subcategory.category'
+    });
+
   }
 
   async renderComponents() {
-    const element = await this.components.productFrom.render();
+    this.subElements.sliderContainer.append(this.components.doubleSlider.element);
+    this.subElements.productsContainer.append(this.components.sortableTable.element);
+    // const element = await this.components.productFrom.render();
 
-    this.element.append(element);
+    // this.element.append(element);
   }
 
   getSubElements(element) {

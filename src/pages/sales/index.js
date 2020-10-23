@@ -56,8 +56,8 @@ export default class Page {
 
     const rangePicker = new RangePicker({ from, to });
     const sortableTable = new SortableTable(header, {
-      url: `api/rest/orders?createdAt_gte=${from.toISOString()}&createdAt_lte=${to.toISOString()}&_sort=createdAt&_order=desc&_start=1&_end=20`,
-      isSortLocally: true
+      url: `api/rest/orders?createdAt_gte=${from.toISOString()}&createdAt_lte=${to.toISOString()}&_sort=createdAt&_order=desc&_start=0&_end=20`,
+      // isSortLocally: true
     });
 
     this.saveComponents({rangePicker, sortableTable});
