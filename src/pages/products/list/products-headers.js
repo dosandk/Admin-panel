@@ -18,10 +18,20 @@ const header = [
     sortType: 'string'
   },
   {
-    id: 'subcategory.title',
+    id: 'subcategory',
+    id: 'subcategory',
     title: 'Category',
-    sortable: true,
-    sortType: 'string'
+    sortable: false,
+    sortType: 'string',
+    template: data => {
+     return `<div class="sortable-table__cell">
+     <span data-tooltip='
+     <div class="sortable-table-tooltip">
+       <span class="sortable-table-tooltip__category">${data.category.title}</span> /
+       <b class="sortable-table-tooltip__subcategory">${data.title}</b>
+     </div>'>${data.title}</span>
+     </div>`;
+    }
   },
   {
     id: 'quantity',

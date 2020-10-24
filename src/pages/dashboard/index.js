@@ -24,7 +24,7 @@ export default class Page {
   }
 
   async updateTableComponent (from, to) {
-    const data = await fetchJson(`${process.env.BACKEND_URL}api/dashboard/bestsellers?_start=1&_end=20&from=${from.toISOString()}&to=${to.toISOString()}`);
+    const data = await fetchJson(`${process.env.BACKEND_URL}api/dashboard/bestsellers?_start=0&_end=20&from=${from.toISOString()}&to=${to.toISOString()}`);
     this.components.sortableTable.addRows(data);
   }
 
@@ -50,9 +50,10 @@ export default class Page {
     });
 
     const sortableTable = new SortableTable(header, {
-      url: `api/dashboard/bestsellers?_start=1&_end=20&from=${from.toISOString()}&to=${to.toISOString()}`,
-      isSortLocally: false
+      url: `api/dashboard/bestsellers?_start=0&_end=20&from=${from.toISOString()}&to=${to.toISOString()}`,
+      isSortLocally: true,
     });
+    sortableTable.loading = true;//TODO: Таким способом отключил подгрузку данных....
 
     const ordersChart = new ColumnChart({
       data: ordersData,

@@ -8,7 +8,7 @@ export default class SortableTable {
   data = [];
   loading = false;
   step = 20;
-  start = 1;
+  start = 0;
   end = this.start + this.step;
 
   onWindowScroll = async () => {
@@ -68,7 +68,6 @@ export default class SortableTable {
     start = 0,
     end = start + step
   } = {}) {
-
     this.headersConfig = headersConfig;
     this.url = new URL(url, BACKEND_URL);
     this.sorted = sorted;
@@ -137,7 +136,6 @@ export default class SortableTable {
   }
 
   getHeaderRow ({id, title, sortable}) {
-    console.log({id, title, sortable});
     const order = this.sorted.id === id ? this.sorted.order : 'asc';
     return `
       <div class="sortable-table__cell" data-id="${id}" data-sortable="${sortable}" data-order="${order}">

@@ -73,7 +73,6 @@ export default class Page {
     this.getCategoriestList(response);
     this.initEventListeners();
 
-    console.log(this.components);
 
     return this.element;
   }
