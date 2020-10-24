@@ -2,7 +2,7 @@ import SortableTable from '../../components/sortable-table/index.js';
 import RangePicker from '../../components/range-picker/index.js';
 import header from './sales-headers.js';
 
-import fetchJson from '../../utils/fetch-json.js'
+import fetchJson from '../../utils/fetch-json.js';
 
 export default class Page {
   element;
@@ -55,18 +55,25 @@ export default class Page {
     const from = new Date(to.getTime() - 30 * 24 * 60 * 60 * 1000);
 
     const rangePicker = new RangePicker({ from, to });
+
     const sortableTable = new SortableTable(header, {
-      url: `api/rest/orders?createdAt_gte=${from.toISOString()}&createdAt_lte=${to.toISOString()}&_sort=createdAt&_order=desc&_start=0&_end=20`
+      url: this.getTableUrl(from, to),
+      sorted: {
+        id: 'createdAt',
+        order: 'desc'
+      },
+      start: 0,
+      step: 30
     });
 
-    this.saveComponents({rangePicker, sortableTable});
+    this.saveComponents({ rangePicker, sortableTable });
   }
 
   saveComponents(items = {}) {
     Object.keys(items).forEach(item => {
-        this.components[item] = items[item];
-    })
-}
+      this.components[item] = items[item];
+    });
+  }
 
   renderComponents() {
     Object.keys(this.components).forEach(component => {
@@ -80,20 +87,26 @@ export default class Page {
   initEventListeners() {
     this.components.rangePicker.element.addEventListener('date-select', event => {
       const { from, to } = event.detail;
-      this.updateTableComponent(from, to);
+      this.updateComponents(from, to);
     });
   }
 
-  async updateTableComponent(from, to) {
-    const data = await fetchJson(`${process.env.BACKEND_URL}api/rest/orders?createdAt_gte=${from.toISOString()}&createdAt_lte=${to.toISOString()}&_sort=totalCost&_order=asc&_start=1&_end=20`);
-    
-    this.components.sortableTable.addRows(data);
+  async updateComponents(from, to) {
+    const { sorted, step } = this.components.sortableTable;
+    this.components.sortableTable.url = new URL(
+      this.getTableUrl(from, to),
+      process.env.BACKEND_URL
+    );
+    await this.components.sortableTable.sortOnServer(sorted.id, sorted.order, 0, step);
+  }
 
+  getTableUrl(from, to) {
+    return `api/rest/orders?createdAt_gte=${from.toISOString()}&createdAt_lte=${to.toISOString()}`;
   }
 
   destroy() {
-      for(const component of Object.values(this.components)) {
-        component.destroy();
-      }
+    for (const component of Object.values(this.components)) {
+      component.destroy();
+    }
   }
 }

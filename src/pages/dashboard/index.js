@@ -59,7 +59,7 @@ export default class Page {
       data: ordersData,
       label: 'orders',
       value: ordersData.reduce((accum, item) => accum + item),
-      link: '#'
+      link: '/sales'
     });
 
     const salesChart = new ColumnChart({
@@ -74,12 +74,14 @@ export default class Page {
       value: customersData.reduce((accum, item) => accum + item),
     });
 
-    this.components.sortableTable = sortableTable;
-    this.components.ordersChart = ordersChart;
-    this.components.salesChart = salesChart;
-    this.components.customersChart = customersChart;
-    this.components.rangePicker = rangePicker;
+    this.saveComponents({sortableTable, ordersChart, salesChart, customersChart, rangePicker});
   }
+
+  saveComponents(items = {}) {
+    Object.keys(items).forEach(item => {
+        this.components[item] = items[item];
+    })
+}
 
   get template () {
     return `<div class="dashboard">
