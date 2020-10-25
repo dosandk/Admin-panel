@@ -97,7 +97,6 @@ export default class SortableTable {
   }
 
   async loadData (id, order, start = this.start, end = this.end) {
-    console.log(this.url.href);
     this.url.searchParams.set('_sort', id);
     this.url.searchParams.set('_order', order);
     this.url.searchParams.set('_start', start);
@@ -164,10 +163,11 @@ export default class SortableTable {
   }
 
   getTableRows (data) {
+    console.log(data);
     return data.map(item => `
-      <div class="sortable-table__row">
+      <a href="/products/${item.id}" class="sortable-table__row">
         ${this.getTableRow(item, data)}
-      </div>`
+      </a>`
     ).join('');
   }
 
@@ -197,7 +197,7 @@ export default class SortableTable {
         <div data-element="emptyPlaceholder" class="sortable-table__empty-placeholder">
           <div class="sortable-table__placeholder-wrapper">
             <p>Не найдено товаров удовлетворяющих выбранному критерию</p>
-            <button type="button" class="button-primary-outline">Очистить фильтры</button>
+            <button data-element="clearFilterBtn" type="button" class="button-primary-outline">Очистить фильтры</button>
           </div>
         </div>
       </div>`;

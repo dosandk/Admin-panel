@@ -15,42 +15,60 @@ export default class Page {
       from: 0,
       to: 0
     }
-  }
-// https://course-js.javascript.ru/api/rest/products?_embed=subcategory.category&price_gte=0&price_lte=4000&title_like=apple&_sort=title&_order=asc&_start=0&_end=30
+  };
 
   initEventListeners() {
-    const {filterName, filterStatus, filter} = this.subElements;
-    const {doubleSlider} = this.components;
+    const { filter } = this.subElements;
+    const { doubleSlider } = this.components;
+    const { clearFilterBtn } = this.components.sortableTable.subElements; //TODO: Можно ли таким образом обрашатся к кнопке и вешать на нее события?
 
     filter.addEventListener('input', this.onFilterInput);
 
     doubleSlider.element.addEventListener('range-select', this.onRangeSelect);
+
+    clearFilterBtn.addEventListener('pointerdown', this.clearFilters);
   }
 
-  onFilterInput = (event) => {
-    const {filterName, filterStatus} = this.subElements;
+  onFilterInput = event => {
+    const { filterName, filterStatus } = this.subElements;
     const target = event.target;
-    if(target === filterName) {
-
+    if (target === filterName) {
       this.filterData.filterName = target.value.trim();
-
-    } else if(target === filterStatus) {
-
+    } else if (target === filterStatus) {
       this.filterData.filterStatus = target.value;
-
     }
 
     this.updateTable();
-  }
+  };
 
-  onRangeSelect = (event) => {
-   const {from, to} = event.detail;
+  onRangeSelect = event => {
+    const { from, to } = event.detail;
 
-   this.filterData.doubleSliderData.from = from;
-   this.filterData.doubleSliderData.to = to;
+    this.filterData.doubleSliderData.from = from;
+    this.filterData.doubleSliderData.to = to;
 
-   this.updateTable();
-  }
+    this.updateTable();
+  };
+
+  clearFilters = event => {
+    const { filterName, filterStatus } = this.subElements;
+    const { min, max } = this.components.doubleSlider;
+
+    filterName.value = '';
+    filterStatus.value = '';
+
+    this.filterData.filterName = '';
+    this.filterData.filterStatus = '';
+
+    this.components.doubleSlider.subElements.from.innerHTML = `$${min}`;
+    this.components.doubleSlider.subElements.to.innerHTML = `$${max}`;
+    this.components.doubleSlider.update();
+
+    this.filterData.doubleSliderData.from = 0;
+    this.filterData.doubleSliderData.to = 4000;
+
+    this.updateTable();
+  };
 
   async updateTable() {
     const { sorted, step } = this.components.sortableTable;
@@ -59,21 +77,23 @@ export default class Page {
 
     this.components.sortableTable.url.href = updatedUrl;
     await this.components.sortableTable.sortOnServer(sorted.id, sorted.order, 0, step);
-    console.log(this.components.sortableTable.element);
-
   }
 
   createURL() {
-    const{filterName, filterStatus, doubleSliderData: {from : minValue, to: maxValue}} = this.filterData;
+    const {
+      filterName,
+      filterStatus,
+      doubleSliderData: { from: minValue, to: maxValue }
+    } = this.filterData;
 
     const url = new URL('api/rest/products?_embed=subcategory.category', process.env.BACKEND_URL);
-    url.searchParams.set("price_gte", minValue);
-    url.searchParams.set("price_lte", maxValue);
-    if(filterName.trim() !== '') {
-      url.searchParams.set("title_like", filterName);
+    url.searchParams.set('price_gte', minValue);
+    url.searchParams.set('price_lte', maxValue);
+    if (filterName.trim() !== '') {
+      url.searchParams.set('title_like', filterName);
     }
-    if(filterStatus != '') {
-      url.searchParams.set("status", filterStatus);
+    if (filterStatus != '') {
+      url.searchParams.set('status', filterStatus);
     }
 
     return url.href;
@@ -90,7 +110,6 @@ export default class Page {
     this.initComponents();
     await this.renderComponents();
     this.initEventListeners();
-
     return this.element;
   }
 
@@ -137,14 +156,11 @@ export default class Page {
     this.components.sortableTable = new SortableTable(header, {
       url: 'api/rest/products?_embed=subcategory.category'
     });
-
   }
 
   async renderComponents() {
     this.subElements.sliderContainer.append(this.components.doubleSlider.element);
     this.subElements.productsContainer.append(this.components.sortableTable.element);
-    console.log(this.components.sortableTable.element);
-
   }
 
   getSubElements(element) {
@@ -155,7 +171,16 @@ export default class Page {
     }, {});
   }
 
+  remove() {
+    const { filter } = this.subElements;
+    const { clearFilterBtn } = this.components.sortableTable.subElements;
+    filter.removeEventListener('input', this.onFilterInput);
+    clearFilterBtn.removeEventListener('pointerdown', this.clearFilters);
+    this.element = null;
+  }
+
   destroy() {
+    this.remove();
     for (const component of Object.values(this.components)) {
       component.destroy();
     }
