@@ -163,7 +163,6 @@ export default class SortableTable {
   }
 
   getTableRows (data) {
-    console.log(data);
     return data.map(item => `
       <a href="/products/${item.id}" class="sortable-table__row">
         ${this.getTableRow(item, data)}
