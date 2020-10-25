@@ -86,6 +86,12 @@
   height: 100%;
 }
 
+.sortable-table__placeholder-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .sortable-table__empty-placeholder p {
   margin: 0 0 12px;
 }

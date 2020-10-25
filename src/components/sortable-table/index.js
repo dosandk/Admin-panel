@@ -97,6 +97,7 @@ export default class SortableTable {
   }
 
   async loadData (id, order, start = this.start, end = this.end) {
+    console.log(this.url.href);
     this.url.searchParams.set('_sort', id);
     this.url.searchParams.set('_order', order);
     this.url.searchParams.set('_start', start);
@@ -194,7 +195,10 @@ export default class SortableTable {
         <div data-element="loading" class="loading-line sortable-table__loading-line"></div>
 
         <div data-element="emptyPlaceholder" class="sortable-table__empty-placeholder">
-          No products
+          <div class="sortable-table__placeholder-wrapper">
+            <p>Не найдено товаров удовлетворяющих выбранному критерию</p>
+            <button type="button" class="button-primary-outline">Очистить фильтры</button>
+          </div>
         </div>
       </div>`;
   }
