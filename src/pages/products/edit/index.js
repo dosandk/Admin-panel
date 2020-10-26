@@ -3,19 +3,28 @@ import ProductForm from '../../../components/product-form/index.js';
 
 export default class Page {
   element;
+  productId = null;
   subElements = {};
   components = {};
 
+  initEventListeners() {
+    // const { productForm } = this.components;
+    // productForm.element.addEventListener('product-updated', (event) => {
+    //   console.log(event.detail);
+    // })
+  }
+
   render() {
+    this.getProductId();
     const element = document.createElement('div');
 
     element.innerHTML = this.template;
 
     this.element = element.firstElementChild;
     this.subElements = this.getSubElements(this.element);
-
     this.initComponents();
     this.renderComponents();
+    this.initEventListeners();
 
     return this.element;
   }
@@ -34,7 +43,7 @@ export default class Page {
       <div class="products-edit">
       <div class="content__top-panel">
         <h1 class="page-title">
-          <a href="/products" class="link">Товары</a> / Редактировать
+        <a href="/products" class="link">Products</a> / ${this.productId ? 'Edit' : 'Add'}
         </h1>
       </div>
         <div data-element="productFormWrapper" class="content-box">
@@ -45,12 +54,15 @@ export default class Page {
   }
 
   initComponents() {
-    const productId = this.getProductId();
-    this.components.productForm = new ProductForm('koaksialnaa-as-jvc-cs-zx630');
+    this.components.productForm = new ProductForm(this.productId);
   }
 
   getProductId() {
-    console.log(window.location);
+    const { pathname } = window.location;
+    const pathnameArr = pathname.split('/');
+    let productId = pathnameArr[pathnameArr.length - 1];
+    productId = productId === 'add' ? null : productId
+    this.productId = productId;
   }
 
   getSubElements($element) {

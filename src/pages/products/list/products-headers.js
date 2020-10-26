@@ -4,11 +4,13 @@ const header = [
     title: 'Image',
     sortable: false,
     template: data => {
-      return `
-          <div class="sortable-table__cell">
-            <img class="sortable-table-image" alt="Image" src="${data[0].url}">
-          </div>
-        `;
+      if (data.length > 0) {
+        return `
+            <div class="sortable-table__cell">
+              <img class="sortable-table-image" alt="Image" src="${data[0].url}">
+            </div>
+          `;
+      }
     }
   },
   {
@@ -24,7 +26,7 @@ const header = [
     sortable: false,
     sortType: 'string',
     template: data => {
-     return `<div class="sortable-table__cell">
+      return `<div class="sortable-table__cell">
      <span data-tooltip='
      <div class="sortable-table-tooltip">
        <span class="sortable-table-tooltip__category">${data.category.title}</span> /
@@ -56,7 +58,7 @@ const header = [
           ${data > 0 ? 'Active' : 'Inactive'}
         </div>`;
     }
-  },
+  }
 ];
 
 export default header;

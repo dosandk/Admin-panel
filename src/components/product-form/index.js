@@ -1,7 +1,7 @@
 import SortableList from '../sortable-list/index.js';
 import escapeHtml from '../../utils/escape-html.js';
 import fetchJson from '../../utils/fetch-json.js';
-const BACKEND_URL = 'https://course-js.javascript.ru';
+
 
 export default class ProductForm {
   element;
@@ -54,7 +54,7 @@ export default class ProductForm {
         const result = await fetchJson("https://api.imgur.com/3/image", {
           method: "POST",
           headers: {
-            Authorization: `Client-ID ${IMGUR_CLIENT_ID}`,
+            Authorization: `Client-ID ${process.env.IMGUR_CLIENT_ID}`,
           },
           body: formData,
         });
@@ -84,8 +84,8 @@ export default class ProductForm {
     const product = this.getFormData();
 
     try {
-      const result = await fetchJson(`${BACKEND_URL}/api/rest/products`, {
-        method: "PATCH",
+      const result = await fetchJson(`${process.env.BACKEND_URL}api/rest/products`, {
+        method: this.productId ? 'PATCH' : 'PUT',
         headers: {
           "Content-Type": "application/json",
         },
@@ -297,12 +297,12 @@ export default class ProductForm {
 
   async loadCategoriesList() {
     return await fetchJson(
-      `${BACKEND_URL}/api/rest/categories?_sort=weight&_refs=subcategory`
+      `${process.env.BACKEND_URL}api/rest/categories?_sort=weight&_refs=subcategory`
     );
   }
 
   async loadProductData(id) {
-    return await fetchJson(`${BACKEND_URL}/api/rest/products?id=${id}`);
+    return await fetchJson(`${process.env.BACKEND_URL}api/rest/products?id=${id}`);
   }
 
   setFormData() {
