@@ -62,6 +62,7 @@ export default class Page {
         id: 'createdAt',
         order: 'desc'
       },
+      clickableRow: false,
       start: 0,
       step: 30
     });

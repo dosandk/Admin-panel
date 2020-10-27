@@ -66,12 +66,14 @@ export default class SortableTable {
     isSortLocally = false,
     step = 20,
     start = 0,
-    end = start + step
+    end = start + step,
+    clickableRow = true,
   } = {}) {
     this.headersConfig = headersConfig;
     this.url = new URL(url, BACKEND_URL);
     this.sorted = sorted;
     this.isSortLocally = isSortLocally;
+    this.clickableRow = clickableRow;
     this.step = step;
     this.start = start;
     this.end = end;
@@ -163,10 +165,17 @@ export default class SortableTable {
   }
 
   getTableRows (data) {
-    return data.map(item => `
-      <a href="/products/${item.id}" class="sortable-table__row">
-        ${this.getTableRow(item, data)}
-      </a>`
+    return data.map(item => {
+      if(this.clickableRow) {
+        return `<a href="/products/${item.id}" class="sortable-table__row">
+          ${this.getTableRow(item, data)}
+        </a>`
+      } else {
+        return `<div href="/products/${item.id}" class="sortable-table__row">
+          ${this.getTableRow(item, data)}
+        </div>`
+      }
+    }
     ).join('');
   }
 
