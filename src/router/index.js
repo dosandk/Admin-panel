@@ -24,9 +24,9 @@ export default class Router {
 
       if (href && href.startsWith('/')) {
         // !Logic for add/remove 'active' class for sidebar menu list item
-        const pageName = href.split('/')[1];
-        const sideBarLists = document.querySelectorAll('[data-list]');
+        const pageName = href.split('/')[1] === '' ? 'dashboard' : href.split('/')[1];
 
+        const sideBarLists = document.querySelectorAll('[data-list]');
         [...sideBarLists].forEach(item => {
           item.classList.remove('active');
           if (item.dataset.list === pageName) {
