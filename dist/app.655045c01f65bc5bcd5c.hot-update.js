@@ -1,0 +1,15 @@
+webpackHotUpdate("app",{
+
+/***/ "./src/router/render-page.js":
+/*!***********************************!*\
+  !*** ./src/router/render-page.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (async function (path, match) {\n  // ! Logic for add active class to current menu list after restart page\n  const pageName = match[0] === '' ? 'dashboard' : match[0];\n\n  if (!pageName.indexOf('/')) {\n    const activeMenuList = document.querySelector(\"[data-list=\".concat(pageName, \"]\"));\n    activeMenuList.classList.add('active');\n  }\n\n  const main = document.querySelector('main');\n  main.classList.add('is-loading');\n  const {\n    default: Page\n  } = await __webpack_require__(\"./src/pages lazy recursive ^\\\\.\\\\/.*\\\\/index\\\\.js$\")(\"./\".concat(path, \"/index.js\"));\n  const page = new Page(match);\n  const element = await page.render();\n  main.classList.remove('is-loading');\n  const contentNode = document.querySelector('#content');\n  contentNode.innerHTML = '';\n  contentNode.append(element);\n  return page;\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcm91dGVyL3JlbmRlci1wYWdlLmpzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL3JvdXRlci9yZW5kZXItcGFnZS5qcz8wNjY2Il0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IGFzeW5jIGZ1bmN0aW9uIChwYXRoLCBtYXRjaCkge1xyXG4gIC8vICEgTG9naWMgZm9yIGFkZCBhY3RpdmUgY2xhc3MgdG8gY3VycmVudCBtZW51IGxpc3QgYWZ0ZXIgcmVzdGFydCBwYWdlXHJcbiAgY29uc3QgcGFnZU5hbWUgPSBtYXRjaFswXSA9PT0gJycgPyAnZGFzaGJvYXJkJyA6IG1hdGNoWzBdO1xyXG4gIGlmKCFwYWdlTmFtZS5pbmRleE9mKCcvJykpIHtcclxuICAgIGNvbnN0IGFjdGl2ZU1lbnVMaXN0ID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihgW2RhdGEtbGlzdD0ke3BhZ2VOYW1lfV1gKTtcclxuICAgIGFjdGl2ZU1lbnVMaXN0LmNsYXNzTGlzdC5hZGQoJ2FjdGl2ZScpO1xyXG4gIH1cclxuXHJcbiAgY29uc3QgbWFpbiA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJ21haW4nKTtcclxuICBtYWluLmNsYXNzTGlzdC5hZGQoJ2lzLWxvYWRpbmcnKTtcclxuXHJcbiAgY29uc3QgeyBkZWZhdWx0OiBQYWdlIH0gPSBhd2FpdCBpbXBvcnQoXHJcbiAgICAvKiB3ZWJwYWNrQ2h1bmtOYW1lOiBcIltyZXF1ZXN0XVwiICovIGAuLi9wYWdlcy8ke3BhdGh9L2luZGV4LmpzYFxyXG4gICk7XHJcbiAgY29uc3QgcGFnZSA9IG5ldyBQYWdlKG1hdGNoKTtcclxuICBjb25zdCBlbGVtZW50ID0gYXdhaXQgcGFnZS5yZW5kZXIoKTtcclxuXHJcbiAgbWFpbi5jbGFzc0xpc3QucmVtb3ZlKCdpcy1sb2FkaW5nJyk7XHJcblxyXG4gIGNvbnN0IGNvbnRlbnROb2RlID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcignI2NvbnRlbnQnKTtcclxuXHJcbiAgY29udGVudE5vZGUuaW5uZXJIVE1MID0gJyc7XHJcbiAgY29udGVudE5vZGUuYXBwZW5kKGVsZW1lbnQpO1xyXG5cclxuICByZXR1cm4gcGFnZTtcclxufVxyXG4iXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBQUE7QUFBQSxzRkFBQTtBQUdBO0FBQ0E7QUFFQTtBQUVBO0FBRUE7QUFDQTtBQUVBO0FBQ0EiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/router/render-page.js\n");
+
+/***/ })
+
+})
