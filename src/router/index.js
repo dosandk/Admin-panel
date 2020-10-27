@@ -16,16 +16,6 @@ export default class Router {
         document.body.classList.toggle('is-collapsed-sidebar');
       }
 
-      // !Logic for add/remove 'active' class for sidebar menu list item
-      const listItem = event.target.closest('[data-list]');
-      if (listItem) {
-        const sideBarLists = document.querySelectorAll("[data-list='sidebar']");
-        [...sideBarLists].forEach(item => {
-          item.classList.remove('active');
-        });
-        listItem.classList.add('active');
-      }
-
       // !Logic for router change pathes
       const link = event.target.closest('a');
       if (!link) return;
@@ -33,6 +23,18 @@ export default class Router {
       const href = link.getAttribute('href');
 
       if (href && href.startsWith('/')) {
+        // !Logic for add/remove 'active' class for sidebar menu list item
+        const pageName = href.split('/')[1];
+        const sideBarLists = document.querySelectorAll('[data-list]');
+
+        [...sideBarLists].forEach(item => {
+          item.classList.remove('active');
+          if (item.dataset.list === pageName) {
+            item.classList.add('active');
+          }
+        });
+
+        // !Logic for router change pathes
         event.preventDefault();
         this.navigate(href);
       }
