@@ -1,0 +1,23 @@
+webpackHotUpdate("products-edit-index-js",{
+
+/***/ "./src/components/notification/index.js":
+false,
+
+/***/ "./src/components/product-form/index.js":
+/*!**********************************************!*\
+  !*** ./src/components/product-form/index.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nSyntaxError: D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\src\\\\components\\\\product-form\\\\index.js: Unexpected token (146:54)\\n\\n\\u001b[0m \\u001b[90m 144 | \\u001b[39m  createProductId(productTitle) {\\u001b[0m\\n\\u001b[0m \\u001b[90m 145 | \\u001b[39m    \\u001b[36mconst\\u001b[39m punctuationless \\u001b[33m=\\u001b[39m productTitle\\u001b[33m.\\u001b[39mreplace(\\u001b[35m/[.,\\\\/#!$%\\\\^&\\\\*;:{}=\\\\-_`~()]/g\\u001b[39m\\u001b[33m,\\u001b[39m\\u001b[32m\\\"\\\"\\u001b[39m)\\u001b[33m;\\u001b[39m\\u001b[0m\\n\\u001b[0m\\u001b[31m\\u001b[1m>\\u001b[22m\\u001b[39m\\u001b[90m 146 | \\u001b[39m    \\u001b[36mconst\\u001b[39m stringWithoutExcessSpaces \\u001b[33m=\\u001b[39m punctuationless(\\u001b[33m.\\u001b[39mreplace(\\u001b[35m/\\\\s{2,}/g\\u001b[39m\\u001b[33m,\\u001b[39m\\u001b[32m\\\" \\\"\\u001b[39m)\\u001b[33m;\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m     | \\u001b[39m                                                      \\u001b[31m\\u001b[1m^\\u001b[22m\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 147 | \\u001b[39m    console\\u001b[33m.\\u001b[39mlog(stringWithoutExcessSpaces\\u001b[33m.\\u001b[39mtoLowerCase))\\u001b[33m;\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 148 | \\u001b[39m  }\\u001b[0m\\n\\u001b[0m \\u001b[90m 149 | \\u001b[39m\\u001b[0m\\n    at Parser._raise (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:766:17)\\n    at Parser.raiseWithData (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:759:17)\\n    at Parser.raise (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:753:17)\\n    at Parser.unexpected (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:8966:16)\\n    at Parser.parseExprAtom (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:10282:20)\\n    at Parser.parseExprSubscripts (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:9844:23)\\n    at Parser.parseUpdate (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:9824:21)\\n    at Parser.parseMaybeUnary (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:9813:17)\\n    at Parser.parseExprOps (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:9683:23)\\n    at Parser.parseMaybeConditional (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:9657:23)\\n    at Parser.parseMaybeAssign (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:9620:21)\\n    at D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:9586:39\\n    at Parser.allowInAnd (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:11303:12)\\n    at Parser.parseMaybeAssignAllowIn (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:9586:17)\\n    at Parser.parseExprListItem (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:11051:18)\\n    at Parser.parseCallExpressionArguments (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:10053:22)\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29tcG9uZW50cy9wcm9kdWN0LWZvcm0vaW5kZXguanMuanMiLCJzb3VyY2VzIjpbXSwibWFwcGluZ3MiOiIiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/components/product-form/index.js\n");
+
+/***/ }),
+
+/***/ "./src/components/sortable-list/index.js":
+false,
+
+/***/ "./src/utils/escape-html.js":
+false
+
+})

@@ -1,0 +1,23 @@
+webpackHotUpdate("products-edit-index-js",{
+
+/***/ "./src/components/notification/index.js":
+false,
+
+/***/ "./src/components/product-form/index.js":
+/*!**********************************************!*\
+  !*** ./src/components/product-form/index.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nSyntaxError: D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\src\\\\components\\\\product-form\\\\index.js: Unexpected token (150:11)\\n\\n\\u001b[0m \\u001b[90m 148 | \\u001b[39m  }\\u001b[0m\\n\\u001b[0m \\u001b[90m 149 | \\u001b[39m\\u001b[0m\\n\\u001b[0m\\u001b[31m\\u001b[1m>\\u001b[22m\\u001b[39m\\u001b[90m 150 | \\u001b[39m  \\u001b[36mfunction\\u001b[39m toTranslit(text) {\\u001b[0m\\n\\u001b[0m \\u001b[90m     | \\u001b[39m           \\u001b[31m\\u001b[1m^\\u001b[22m\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 151 | \\u001b[39m    \\u001b[36mreturn\\u001b[39m text\\u001b[33m.\\u001b[39mreplace(\\u001b[35m/([а-яё])|([\\\\s_-])|([^a-z\\\\d])/gi\\u001b[39m\\u001b[33m,\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 152 | \\u001b[39m    \\u001b[36mfunction\\u001b[39m (all\\u001b[33m,\\u001b[39m ch\\u001b[33m,\\u001b[39m space\\u001b[33m,\\u001b[39m words\\u001b[33m,\\u001b[39m i) {\\u001b[0m\\n\\u001b[0m \\u001b[90m 153 | \\u001b[39m        \\u001b[36mif\\u001b[39m (space \\u001b[33m||\\u001b[39m words) {\\u001b[0m\\n    at Parser._raise (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:766:17)\\n    at Parser.raiseWithData (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:759:17)\\n    at Parser.raise (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:753:17)\\n    at Parser.unexpected (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:8966:16)\\n    at Parser.parseClassMemberWithIsStatic (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:12396:12)\\n    at Parser.parseClassMember (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:12289:10)\\n    at D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:12241:14\\n    at Parser.withTopicForbiddingContext (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:11272:14)\\n    at Parser.parseClassBody (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:12218:10)\\n    at Parser.parseClass (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:12193:22)\\n    at Parser.parseExportDefaultExpression (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:12609:19)\\n    at Parser.parseExport (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:12530:31)\\n    at Parser.parseStatementContent (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:11537:27)\\n    at Parser.parseStatement (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:11431:17)\\n    at Parser.parseBlockOrModuleBlockBody (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:12013:25)\\n    at Parser.parseBlockBody (D:\\\\WebDev\\\\JavaScript\\\\Tasks_Learn_JS\\\\Admin-panel\\\\node_modules\\\\@babel\\\\parser\\\\lib\\\\index.js:11999:10)\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29tcG9uZW50cy9wcm9kdWN0LWZvcm0vaW5kZXguanMuanMiLCJzb3VyY2VzIjpbXSwibWFwcGluZ3MiOiIiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/components/product-form/index.js\n");
+
+/***/ }),
+
+/***/ "./src/components/sortable-list/index.js":
+false,
+
+/***/ "./src/utils/escape-html.js":
+false
+
+})
