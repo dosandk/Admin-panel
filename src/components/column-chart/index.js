@@ -15,9 +15,9 @@ export default class ColumnChart {
     const maxValue = Math.max(...data);
     return data.map(item => {
         const scale = this.chartHeight / maxValue;
-        const percent = ((item / maxValue) * 100).toFixed(0);
+        const eachDayValue = this.label === "sales" ? '$' + this.formatBigInt(item) : this.formatBigInt(item);
 
-        return `<div style="--value: ${Math.floor(item * scale)}" data-tooltip="${percent}%"></div>`;
+        return `<div style="--value: ${Math.floor(item * scale)}" data-tooltip="${eachDayValue}"></div>`;
       }).join('');
   }
 
@@ -67,6 +67,25 @@ export default class ColumnChart {
 
       return accum;
     }, {});
+  }
+
+  formatBigInt(price) {
+    const newArr = [];
+    const priceString = String(price);
+    const lastElementIndex = priceString.length - 1;
+    let count = 0;
+    for (let i = lastElementIndex; i >= 0; i--) {
+      count++;
+      newArr.push(priceString[i]);
+      if (count % 3 === 0) {
+        newArr.push(',');
+      }
+    }
+
+    if (newArr[newArr.length - 1] === ',') {
+      newArr.splice(newArr.length - 1, 1);
+    }
+    return newArr.reverse().join('');
   }
 
   update({ headerData, bodyData }) {
