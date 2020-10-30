@@ -30,9 +30,9 @@ export default class Page {
 
   async updateChartsComponents (from, to) {
     const [ordersData, salesData, customersData] = await this.getDataForColumnCharts(from, to);
-    const ordersDataTotal = ordersData.reduce((accum, item) => accum + item);
-    const salesDataTotal = salesData.reduce((accum, item) => accum + item);
-    const customersDataTotal = customersData.reduce((accum, item) => accum + item);
+    const ordersDataTotal = this.formatBigInt(ordersData.reduce((accum, item) => accum + item));
+    const salesDataTotal = this.formatBigInt(salesData.reduce((accum, item) => accum + item));
+    const customersDataTotal = this.formatBigInt(customersData.reduce((accum, item) => accum + item));
 
     this.components.ordersChart.update({headerData: ordersDataTotal, bodyData: ordersData});
     this.components.salesChart.update({headerData: '$' + salesDataTotal, bodyData: salesData});
@@ -58,20 +58,20 @@ export default class Page {
     const ordersChart = new ColumnChart({
       data: ordersData,
       label: 'orders',
-      value: ordersData.reduce((accum, item) => accum + item),
+      value: this.formatBigInt(ordersData.reduce((accum, item) => accum + item)),
       link: '/sales'
     });
 
     const salesChart = new ColumnChart({
       data: salesData,
       label: 'sales',
-      value: '$' + salesData.reduce((accum, item) => accum + item),
+      value: '$' + this.formatBigInt(salesData.reduce((accum, item) => accum + item)),
     });
 
     const customersChart = new ColumnChart({
       data: customersData,
       label: 'customers',
-      value: customersData.reduce((accum, item) => accum + item),
+      value: this.formatBigInt(customersData.reduce((accum, item) => accum + item)),
     });
 
     this.saveComponents({sortableTable, ordersChart, salesChart, customersChart, rangePicker});
@@ -144,6 +144,25 @@ export default class Page {
       this.updateChartsComponents(from, to);
       this.updateTableComponent(from, to);
     });
+  }
+
+  formatBigInt(price) {
+    const newArr = [];
+    const priceString = String(price);
+    const lastElementIndex = priceString.length - 1;
+    let count = 0;
+    for (let i = lastElementIndex; i >= 0; i--) {
+      count++;
+      newArr.push(priceString[i]);
+      if (count % 3 === 0) {
+        newArr.push(',');
+      }
+    }
+
+    if (newArr[newArr.length - 1] === ',') {
+      newArr.splice(newArr.length - 1, 1);
+    }
+    return newArr.reverse().join('');
   }
 
   destroy () {
