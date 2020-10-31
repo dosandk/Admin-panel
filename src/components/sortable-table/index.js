@@ -103,7 +103,7 @@ export default class SortableTable {
     this.url.searchParams.set('_order', order);
     this.url.searchParams.set('_start', start);
     this.url.searchParams.set('_end', end);
-
+    
     this.element.classList.add('sortable-table_loading');
 
     const data = await fetchJson(this.url);
