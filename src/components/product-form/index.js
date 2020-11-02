@@ -1,3 +1,4 @@
+const { v4: uuidv4 } = require('uuid');
 import SortableList from '../sortable-list/index.js';
 import NotificationMessage from '../notification/index.js';
 import escapeHtml from '../../utils/escape-html.js';
@@ -120,8 +121,7 @@ export default class ProductForm {
     values.id = this.productId;
     // !Case if we create a new product Item and in have no ID yet
     if(!this.productId) {
-      values.id = this.createProductId(values.title);
-      console.log(values.id);
+      values.id = uuidv4();
     }
 
     for (const image of imagesHTMLCollection) {
@@ -141,32 +141,6 @@ export default class ProductForm {
 
     notificationMessage.show();
   }
-
-  createProductId(productTitle) {
-    const punctuationLess = productTitle.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
-    const stringWithoutExcessSpaces = punctuationLess.replace(/\s{2,}/g," ").toLowerCase();
-    const newId = this.toTranslit(stringWithoutExcessSpaces);
-    return newId;
-  }
-
-   toTranslit(text) {
-    return text.replace(/([а-яё])|([\s_-])|([^a-z\d])/gi,
-    function (all, ch, space, words, i) {
-        if (space || words) {
-            return space ? '-' : '';
-        }
-        var code = ch.charCodeAt(0),
-            index = code == 1025 || code == 1105 ? 0 :
-                code > 1071 ? code - 1071 : code - 1039,
-            t = ['yo', 'a', 'b', 'v', 'g', 'd', 'e', 'zh',
-                'z', 'i', 'y', 'k', 'l', 'm', 'n', 'o', 'p',
-                'r', 's', 't', 'u', 'f', 'h', 'c', 'ch', 'sh',
-                'shch', '', 'y', '', 'e', 'yu', 'ya'
-            ]; 
-        return t[index];
-    });
-    
-}
 
   async render() {
     const categoriesPromise = this.loadCategoriesList();
